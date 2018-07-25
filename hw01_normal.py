@@ -37,12 +37,14 @@ print(a,b)
 # Для вычисления квадратного корня воспользуйтесь функцией sqrt() модуля math:
 # import math
 # math.sqrt(4) - вычисляет корень числа 4
+import math
 a=int(input('Введите первый коэффициент '))
 b=int(input('Введите второй коэффициент '))
 c=int(input('Введите третий коэффициент '))
 d = b**2 - 4 * a * c
-import math
-d = math.sqrt(d)
-x1=(b*-1+d)/(2*a)
-x2=(b*-1-d)/(2*a)
-print(x1,x2)
+if d >= 0:
+    d = math.sqrt(d)
+    x1=(b*-1+d)/(2*a)
+    x2=(b*-1-d)/(2*a)
+    print(x1, x2)
+else: print('действительных корней нет')
