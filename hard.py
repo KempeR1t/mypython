@@ -41,14 +41,14 @@ print('Дата введена корректно!')
 
 
 #для второй задачи есть еще очень лаконичное решение:
-#import datetime
-#date_string = input('Введите дату в формате dd.mm.yyyy ')
-#date_format = '%d.%m.%Y'
-#try:
-#  date_obj = datetime.datetime.strptime(date_string, date_format)
-#  print(date_string, 'это корректная дата')
-#except ValueError:
-#  print("Дата введена неверно")
+import datetime
+date_string = input('Введите дату в формате dd.mm.yyyy ')
+date_format = '%d.%m.%Y'
+try:
+  date_obj = datetime.datetime.strptime(date_string, date_format)
+  print(date_string, 'это корректная дата')
+except ValueError:
+  print("Дата введена неверно")
 
 
 # Задание-3: "Перевёрнутая башня" (Задача олимпиадного уровня)
