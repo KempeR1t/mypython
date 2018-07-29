@@ -35,7 +35,7 @@ if (date[1]=='04' or date[1]=='06' or date[1]=='09' or date[1]=='11' or date[1]=
 elif (date[1]=='01' or date[1]=='03' or date[1]=='05' or date[1]=='07' or date[1]=='08' or date[1]=='10' or date[1]=='12') and 1<=int(date[0])<=31:
     pass
 else:
-    print('Дата была введена неверно (проверьте ввод дня)')
+    print('Дата была введена неверно')
     exit()
 print('Дата введена корректно!')
 
