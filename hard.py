@@ -118,32 +118,51 @@ except FileNotFoundError:
 # Подсказка:
 # Чтобы получить список больших букв русского алфавита:
 # print(list(map(chr, range(ord('А'), ord('Я')+1))))
+
+'''
+Алгоритм работы программы: выгружаем весь список фруктов в список v, затем в переменную буква помещаем первую букву
+первого фрукта, начинаем обходить весь наш список, если первая буква фрукта не изменилась, пишем его в файл
+fruits_+НашаБуква, если первая буква изменилась, то записываем ее в переменную и имя файла следовательно тоже изменится
+и так со всем списком.
+'''
 import os
-path = os.path.join('F:/', 'Загрузки/', 'fruits.txt')
+import subprocess
+z = 'F:/Загрузки/'                                  #сюда пишем адрес папки, где лежат файлы
+path = os.path.join(z, 'fruits.txt')
 f = open(path, 'r', encoding='UTF-8')
 # Считываем всю информацию из файла
 v=f.read()
 f.close()
 v = v.split('\n')
 dl=0
-print(v)
-exit()
 while dl < len(v):               #удаляем пустые элементы из списка
     if v[dl] == '':
         del v[dl]
     else:
         dl += 1
 bukva = v[0][0]
-path=os.path.join('F:/Загрузки/', str('fruits_'+bukva+'.txt'))
+path=os.path.join(z, str('fruits_'+bukva+'.txt'))
 for x in range(len(v)):
     if v[x][0]==bukva:
-        f = open(path, 'a', encoding='UTF-8')
-        f.write(v[x]+'\n')
-        f.close
+        with open(path, 'a', encoding='UTF-8') as f:
+          f.write(v[x]+'\n')
     else:
         bukva=str(v[x][0])
-        path=os.path.join('F:/Загрузки/', str('fruits_'+bukva+'.txt'))
-        f = open(path, 'a', encoding='UTF-8')
-        f.write(v[x] + '\n')
-        f.close
+        path=os.path.join(z, str('fruits_'+bukva+'.txt'))
+        with open(path, 'a', encoding='UTF-8') as f:
+          f.write(v[x] + '\n')
     x+=1
+print('Все файлы выгружены в папку %s' % z)
+vopros = input('Желаете чтобы я удалил их Y/N? Функция корректно работает на Windows, другие ОС в разработке... ')
+while vopros != 'N' and vopros != 'Y':
+    vopros = input('Желаете чтобы я удалил их Y/N? Функция корректно работает на Windows, другие ОС в разработке... ')
+if vopros == 'Y':
+   for file in os.listdir(z):
+        if file.startswith("fruits_"):
+            path = os.path.join(z, file)
+            os.remove(path)
+            print('Удаление завершено')
+elif vopros == 'N':
+    print('Как хотите, но не забудьте прибрать за собой')
+    z = z.replace('/', '\\')
+    subprocess.Popen('explorer "%s"' % (z))
