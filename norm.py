@@ -66,11 +66,11 @@ line_2 = 'mtMmEZUOmcqWiryMQhhTxqKdSTKCYEJlEZCsGAMkgAYEOmHBSQsSUHKvSfbmxULaysmNO'
        'XiUWgsKQrDOeZoNlZNRvHnLgCmysUeKnVJXPFIzvdDyleXylnKBfLCjLHntltignbQoiQ'\
        'zTYwZAiRwycdlHfyHNGmkNqSwXUrxGc'
 
-#1 списобо - с re
+#1 способ - с re
 found = re.findall(r'[a-z]{2}([A-Z]+)[A-Z]{2}',line_2)
 print(found)
 
-#2 списобо - без re
+#2 способ - без re
 '''
 решил через ord() без самого очевидного islower()\isupper().
 '''
