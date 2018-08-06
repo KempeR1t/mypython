@@ -69,7 +69,7 @@ try:
     d = 'NO'
     while x < 8:
         while j < 8:
-           if a[x][0] == a[j][0] or a[x][1] == a[j][1] or (int(a[x][0]) - int(a[j][0]) == int(a[x][1]) - int(a[j][1])):
+           if a[x][0] == a[j][0] or a[x][1] == a[j][1] or (abs(int(a[x][0]) - int(a[j][0])) == abs(int(a[x][1]) - int(a[j][1]))):
                d = 'YES'
            j+=1
         x+=1
