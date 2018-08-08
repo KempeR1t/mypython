@@ -59,4 +59,4 @@ import shutil
 def copy_file(source, dest):
     shutil.copyfile(source, dest)
 
-copy_file(sys.argv[0], sys.argv[0][:-3] + '_copy.py')  # делаем [:-3] чтобы не было проблем с расширением
+copy_file(sys.argv[0], (sys.argv[0].split('.')[0]) + '_copy.' + sys.argv[0].split('.')[1])
