@@ -1,16 +1,6 @@
 import json
 import sys
 import datetime
-import sqlite3
-conn = sqlite3.connect('pogoda.db')
-c = conn.cursor()
-c.execute('''CREATE TABLE IF NOT EXISTS pogoda(
-            city_id integer primary key,
-            city varchar(255),
-            nasha_data DATE,
-            temperature integer,
-            weather_id integer 
-            )''')
 
 def time_converter(time):
     converted_time = datetime.datetime.fromtimestamp(
