@@ -1,3 +1,4 @@
+#на вход подается город и 2 буквы страны, например Moscow RU
 import json
 import sys
 import datetime
@@ -68,5 +69,5 @@ def data_output(data):
     print('')
     print('Last update from the server: {}'.format(data['dt']))
     print('---------------------------------------')
-vvod = input('Введите название города на английском и 2 буквы страны ').split(' ')
+vvod = input('Введите название города на английском и 2 буквы страны, например Moscow RU ').split(' ')
 data_output(data_organizer(get_data(get_city(vvod))))
